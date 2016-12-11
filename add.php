@@ -10,6 +10,7 @@
     <form action="reply.php" method="post">
         <input type="text" name="name">
         <input type="text" name="phone">
+        <input type="text" name="mail">
         <input type="submit">
     </form>
 </body>
