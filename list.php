@@ -14,6 +14,8 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
     <style>
         a:hover {
             text-decoration: none;
@@ -46,7 +48,7 @@
                             <?php echo $row["mail"]; ?>
                         </td>
                         <td>
-                            <a href="delete.php?sid=<?php echo $row["id"];?>" class="fa fa-trash-o fa-2x"onclick="return confirm('確認刪除?')"></a>
+                            <a href="javascript:;" id="<?php echo $row["id"];?>" class="fa fa-trash-o fa-2x del"></a>
                         </td>
                         <td>
                             <a href="edit.php?sid=<?php echo $row["id"];?>" class="fa fa-pencil fa-2x"></a>
@@ -57,6 +59,33 @@
         </div>
         <a href="add.php" class="fa fa-plus fa-2x"></a>
     </div>
+    <script>
+        $(function () {
+            $(".del").click(function () {
+                var el = $(this);
+                var id = el.attr("id");
+                var info = "sid="+id;
+                console.log(info);
+                if(confirm("確認刪除？")){
+                    $.ajax({
+                        url:"delete.php",
+                        type:"get",
+                        data:info,
+                        success:function(e){
+//                            alert("success")
+                             el.parent().parent().fadeOut();
+                        },
+                        error:function(e){
+                            alert("ERROR");
+                        }
+                    });
+                   
+                   
+                }
+                return false;
+            })
+        })
+    </script>
 </body>
 
 </html>

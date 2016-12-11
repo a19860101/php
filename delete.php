@@ -5,5 +5,5 @@
 //    $sql = "DELETE FROM `students` WHERE id=".$id;
 //    $sql = "DELETE FROM `students` WHERE id=".$_GET["sid"];
     mysql_query($sql);
-    header("Location:list.php");
+//    header("Location:list.php");
 ?>

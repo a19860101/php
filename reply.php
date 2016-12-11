@@ -5,5 +5,5 @@
     $mail = $_POST["mail"];
     $sql = "INSERT INTO `students`(name,phone,mail)VALUES('$name','$phone','$mail')";
     mysql_query($sql);
-    header("Location:list.php");
+//    header("Location:list.php");
 ?>
